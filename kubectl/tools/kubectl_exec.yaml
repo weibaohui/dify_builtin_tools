@@ -1,0 +1,22 @@
+identity:
+  name: kubectl
+  author: weibaohui
+  label:
+    en_US: kubectl exec
+    zh_Hans: 执行kubectl命令
+description:
+  human:
+    en_US:  A tool for exec kubectl command
+    zh_Hans: 一个用于执行kubectl命令的工具
+  llm: A tool for exec kubectl command
+parameters:
+  - name: command
+    type: string
+    required: true
+    label:
+      en_US: command text for kubectl exec
+      zh_Hans: 命令内容
+    human_description:
+      en_US: command text for kubectl exec
+      zh_Hans: 命令内容
+    form: llm

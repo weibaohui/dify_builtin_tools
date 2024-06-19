@@ -1,0 +1,12 @@
+identity:
+  author: weibaohui
+  name: kubectl
+  label:
+    en_US: Kubectl
+    zh_Hans: Kubectl执行器
+  description:
+    en_US: A tool for exec kubectl command.
+    zh_Hans: 一个Kubectl 命令执行器
+  icon: icon.svg
+  tags:
+    - utilities
