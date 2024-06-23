@@ -16,7 +16,14 @@ parameters:
     label:
       en_US: command text for kubectl exec
       zh_Hans: 命令内容
+    form: llm
+  - name: json_key
+    type: string
+    required: true
+    label:
+      en_US: Which key in the JSON contains the command?
+      zh_Hans: "传入json字符串的key"
     human_description:
-      en_US: command text for kubectl exec
-      zh_Hans: 命令内容
+      en_US: Which key in the JSON contains the command?
+      zh_Hans: "举例 上一节点输出为{\"result\": \"kubectl get pods -n default\\n```\"}，那么json_key=result"
     form: llm

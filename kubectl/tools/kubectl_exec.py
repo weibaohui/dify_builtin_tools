@@ -1,3 +1,4 @@
+import json
 from typing import Any, Union, ClassVar
 import subprocess
 
@@ -8,7 +9,7 @@ from core.tools.tool.builtin_tool import BuiltinTool
 
 
 class KubectlExecTool(BuiltinTool):
-    model_config = ConfigDict(ignored_types=(type(subprocess),))
+    model_config = ConfigDict(ignored_types=(type(subprocess), type(json)))
 
     def _invoke(self,
                 user_id: str,
@@ -19,9 +20,14 @@ class KubectlExecTool(BuiltinTool):
         """
         # get text content
         command = tool_parameters.get('command', '')
+        json_key = tool_parameters.get('json_key', '')
         if not command:
             return self.create_text_message('Invalid parameter command')
-        output = self.execute_command(command)
+        # command = {\"result\": \"kubectl get pods -n default\\n```\"}
+        # json_key = 'result'
+        final_result = json.loads(command)[json_key]
+        final_result = final_result.strip().replace("```", "").replace("\n", "").replace("\r", "")
+        output = self.execute_command(final_result)
         return self.create_text_message(output)
 
     import subprocess
