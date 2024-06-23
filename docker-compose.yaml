@@ -2,7 +2,7 @@ version: '3'
 services:
   # API service
   api:
-    image: langgenius/dify-api:0.6.11
+    image: langgenius/dify-api:0.6.11_kubectl
     restart: always
     environment:
       # Startup mode, 'api' starts the API server.
@@ -200,6 +200,7 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
       - ./volumes/plugins/kubectl:/app/api/core/tools/provider/builtin/kubectl
+      - /Users/weibh/.kube/config:/root/.kube/config
     # uncomment to expose dify-api port to host
     # ports:
     #   - "5001:5001"
@@ -210,7 +211,7 @@ services:
   # worker service
   # The Celery worker for processing the queue.
   worker:
-    image: langgenius/dify-api:0.6.11
+    image: langgenius/dify-api:0.6.11_kubectl
     restart: always
     environment:
       CONSOLE_WEB_URL: ''
@@ -352,6 +353,7 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
       - ./volumes/plugins/kubectl:/app/api/core/tools/provider/builtin/kubectl
+      - /Users/weibh/.kube/config:/root/.kube/config
     networks:
       - ssrf_proxy_network
       - default
