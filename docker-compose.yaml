@@ -200,7 +200,7 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
       - ./volumes/plugins/kubectl:/app/api/core/tools/provider/builtin/kubectl
-      - /Users/weibh/.kube/config:/root/.kube/config
+      - /root/.kube/config:/root/.kube/config
     # uncomment to expose dify-api port to host
     # ports:
     #   - "5001:5001"
@@ -353,7 +353,7 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
       - ./volumes/plugins/kubectl:/app/api/core/tools/provider/builtin/kubectl
-      - /Users/weibh/.kube/config:/root/.kube/config
+      - /root/.kube/config:/root/.kube/config
     networks:
       - ssrf_proxy_network
       - default
