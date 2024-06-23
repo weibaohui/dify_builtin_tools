@@ -16,6 +16,9 @@ parameters:
     label:
       en_US: command text for kubectl exec
       zh_Hans: 命令内容
+    human_description:
+      en_US: command text for kubectl exec
+      zh_Hans: 命令内容
     form: llm
   - name: json_key
     type: string
